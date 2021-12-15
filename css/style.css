@@ -36,7 +36,7 @@ section {
   justify-content: space-between;
   width: 33.3333333333%;
   padding: 8px;
-  padding-right: 20px;
+  padding-right: 10px;
   padding-left: 12px;
   position: relative;
   cursor: pointer;
@@ -65,16 +65,16 @@ section {
   content: "";
   width: 24px;
   height: 24px;
-  background-color: transparent;
+  background-color: white;
   position: absolute;
-  right: 0px;
+  right: -12px;
   top: 9.5px;
   border: 1.5px solid #a3a3a3;
   border-radius: 0px;
   border-left: none;
   border-bottom: none;
-  transform: rotate(55deg) skewX(30deg);
-  z-index: 5;
+  transform: rotate(58deg) skewX(30deg);
+  z-index: 200;
   border-top-right-radius: 5px;
 }
 @media only screen and (min-width: 640px) {
@@ -82,6 +82,7 @@ section {
     width: 29px;
     height: 29px;
     top: 11.5px;
+    right: -15px;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -93,9 +94,10 @@ section {
 }
 @media only screen and (min-width: 1024px) {
   .breadcrumb .bread-item::after {
-    width: 42px;
-    height: 42px;
-    top: 16.5px;
+    width: 41px;
+    height: 41px;
+    top: 17px;
+    right: -21px;
   }
 }
 @media only screen and (min-width: 1280px) {
@@ -103,13 +105,15 @@ section {
     width: 45px;
     height: 45px;
     top: 18.5px;
+    right: -23px;
   }
 }
 @media only screen and (min-width: 1600px) {
   .breadcrumb .bread-item::after {
-    width: 50px;
-    height: 50px;
-    top: 21.5px;
+    width: 51px;
+    height: 51px;
+    top: 20.5px;
+    right: -25px;
   }
 }
 .breadcrumb .bread-item:first-child {
@@ -122,33 +126,59 @@ section {
     padding-left: 15px;
   }
 }
-@media only screen and (min-width: 1024px) {
-  .breadcrumb .bread-item:first-child {
-    padding-left: 20px;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  .breadcrumb .bread-item:first-child {
-    padding-right: 35px;
-  }
-}
 @media only screen and (min-width: 1280px) {
   .breadcrumb .bread-item:first-child {
-    padding-right: 40px;
+    padding-right: 20px;
     padding-left: 25px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .breadcrumb .bread-item:first-child {
+    padding-right: 30px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .breadcrumb .bread-item:first-child {
+    padding-right: 40px;
   }
 }
 .breadcrumb .bread-item:nth-child(2), .breadcrumb .bread-item:last-child {
   border-left: none;
 }
+.breadcrumb .bread-item:nth-child(2) {
+  padding-left: 20px;
+}
+@media only screen and (min-width: 640px) {
+  .breadcrumb .bread-item:nth-child(2) {
+    padding-left: 30px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .breadcrumb .bread-item:nth-child(2) {
+    padding-left: 40px;
+  }
+}
 @media only screen and (min-width: 1280px) {
   .breadcrumb .bread-item:nth-child(2) {
+    padding-right: 25px;
+    padding-left: 45px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .breadcrumb .bread-item:nth-child(2) {
+    padding-left: 55px;
+    padding-right: 30px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .breadcrumb .bread-item:nth-child(2) {
+    padding-left: 60px;
     padding-right: 40px;
-    padding-left: 25px;
   }
 }
 .breadcrumb .bread-item:last-child {
   padding-right: 10px;
+  padding-left: 20px;
   border-right: 1px solid #a3a3a3;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
@@ -156,17 +186,29 @@ section {
 @media only screen and (min-width: 640px) {
   .breadcrumb .bread-item:last-child {
     padding-right: 15px;
+    padding-left: 30px;
   }
 }
 @media only screen and (min-width: 1024px) {
   .breadcrumb .bread-item:last-child {
     padding-right: 20px;
+    padding-left: 40px;
   }
 }
 @media only screen and (min-width: 1280px) {
   .breadcrumb .bread-item:last-child {
-    padding-left: 25px;
+    padding-left: 40px;
     padding-right: 25px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .breadcrumb .bread-item:last-child {
+    padding-left: 55px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .breadcrumb .bread-item:last-child {
+    padding-left: 60px;
   }
 }
 .breadcrumb .bread-item:last-child::after {
@@ -181,6 +223,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 1000;
 }
 .breadcrumb .bread-item .img img,
 .breadcrumb .bread-item .number img {
@@ -299,16 +343,34 @@ section {
 }
 
 section .breadcrumb .active {
-  background-color: #8b8b8b2d;
+  background-color: #f1f1f1;
+  position: relative;
+  z-index: 10;
   border-color: #d82bb5;
 }
-section .breadcrumb .active .img, section .breadcrumb .active .number {
+section .breadcrumb .active .img,
+section .breadcrumb .active .number {
   background-color: white;
   border-color: #d82bb5;
   border: 1.5px solid #d82bb5;
 }
+section .breadcrumb .active .number h4 {
+  color: #d82bb5;
+}
 section .breadcrumb .active .texts {
   color: #d82bb5;
+}
+section .breadcrumb .active .texts .title {
+  font-weight: bold;
+}
+section .breadcrumb .active::after {
+  background-color: #f1f1f1;
+  z-index: 5;
+  border-right: 1px solid #d82bb5;
+  border-top: 1px solid #d82bb5;
+}
+section .breadcrumb .bread-item.active {
+  border-right: 1px solid #d82bb5;
 }
 
 /*# sourceMappingURL=style.css.map */

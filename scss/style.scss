@@ -1,0 +1,289 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// break point
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+$xxl: 1440px;
+$xxxl: 1600px;
+$mxl: 1920px;
+
+// variable
+$radius: 6px;
+$border-c: #a3a3a3;
+$active: #d82bb5;
+
+@mixin resp($width) {
+    @media only screen and (min-width: $width) {
+        @content;
+    }
+}
+
+section {
+    width: 100%;
+    margin: 100px auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include resp($sm) {
+        width: 90%;
+        padding: 0px;
+    }
+    @include resp($lg) {
+        width: 85%;
+    }
+}
+
+.breadcrumb {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    .bread-item {
+        border-top: 1px solid $border-c;
+        border-left: 1px solid $border-c;
+        border-bottom: 1px solid $border-c;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        width: unquote(
+            $string: (
+                100 / 3,
+            ) + "%"
+        );
+        padding: 8px;
+        padding-right: 20px;
+        padding-left: 12px;
+        position: relative;
+        cursor: pointer;
+
+        // hover amination
+        &:hover {
+            
+        }
+        // hover amination
+
+        @include resp($sm) {
+            align-items: center;
+            padding-top: 13px;
+            padding-bottom: 13px;
+        }
+        @include resp($md) {
+            padding-right: 25px;
+            padding-left: 15px;
+        }
+        @include resp($lg) {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+        }
+        // after style
+        &::after {
+            content: "";
+            width: 24px;
+            height: 24px;
+            background-color: transparent;
+            position: absolute;
+            right: 0px;
+            top: 9.5px;
+            border: 1.5px solid $border-c;
+            border-radius: 0px;
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(55deg) skewX(30deg);
+            z-index: 5;
+            border-top-right-radius: 5px;
+            @include resp($sm) {
+                width: 29px;
+                height: 29px;
+                top: 11.5px;
+            }
+            @include resp($md) {
+                width: 31px;
+                height: 31px;
+                top: 12.5px;
+            }
+            @include resp($lg) {
+                width: 42px;
+                height: 42px;
+                top: 16.5px;
+            }
+            @include resp($xl) {
+                width: 45px;
+                height: 45px;
+                top: 18.5px;
+            }
+            @include resp($xxxl) {
+                width: 50px;
+                height: 50px;
+                top: 21.5px;
+            }
+        }
+        &:first-child {
+            border-top-left-radius: $radius;
+            border-bottom-left-radius: $radius;
+            padding-left: 10px;
+            @include resp($sm) {
+                padding-left: 15px;
+            }
+            @include resp($lg) {
+                padding-left: 20px;
+            }
+            @include resp($lg) {
+                padding-right: 35px;
+            }
+            @include resp($xl) {
+                padding-right: 40px;
+                padding-left: 25px;
+            }
+        }
+        &:nth-child(2),
+        &:last-child {
+            border-left: none;
+        }
+        // center elem3ent
+        &:nth-child(2) {
+            @include resp($xl) {
+                padding-right: 40px;
+                padding-left: 25px;
+            }
+        }
+
+        // last element
+        &:last-child {
+            padding-right: 10px;
+            border-right: 1px solid $border-c;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+            @include resp($sm) {
+                padding-right: 15px;
+            }
+            @include resp($lg) {
+                padding-right: 20px;
+            }
+            @include resp($xl) {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+            &::after {
+                content: initial;
+            }
+        }
+        // image
+        .img,
+        .number {
+            width: 30px;
+            height: 30px;
+            border: 1px dotted $border-c;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+                display: inline-block;
+                width: 60%;
+                height: 60%;
+                @include resp($sm) {
+                    width: 65%;
+                    height: 65%;
+                }
+            }
+            @include resp($md) {
+                width: 33px;
+                height: 33px;
+            }
+            @include resp($lg) {
+                width: 38px;
+                height: 38px;
+            }
+            @include resp($xl) {
+                width: 45px;
+                height: 45px;
+                border-width: 2px;
+            }
+            @include resp($xxxl) {
+                width: 55px;
+                height: 55px;
+            }
+        }
+        // number
+        .number {
+            h4 {
+                font-size: 14px;
+                color: $border-c;
+                font-weight: bold;
+                font-family: Arial, Helvetica, sans-serif;
+                @include resp($lg) {
+                    font-size: 16px;
+                }
+                @include resp($xl) {
+                    font-size: 20px;
+                }
+            }
+        }
+        // texts
+        .texts {
+            display: none;
+            color: $border-c;
+            text-transform: capitalize;
+            @include resp($sm) {
+                display: flex;
+                flex-flow: column wrap;
+                justify-content: center;
+            }
+            p {
+                font-family: Arial;
+                font-size: 12px;
+                @include resp($md) {
+                    font-size: 13px;
+                }
+                @include resp($lg) {
+                    font-size: 14px;
+                    margin-bottom: 3px;
+                }
+                @include resp($xl) {
+                    margin-bottom: 5px;
+                }
+                @include resp($xxxl) {
+                    font-size: 16px;
+                }
+            }
+            h6 {
+                font-weight: normal;
+                font-family: arial;
+                font-size: 12px;
+                @include resp($md) {
+                    font-size: 14px;
+                }
+                @include resp($lg) {
+                    font-size: 16px;
+                }
+                @include resp($xxxl) {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+// active class
+section {
+    .breadcrumb {
+        .active {
+            background-color: #8b8b8b2d;
+            border-color: $active;
+            .img, .number {
+                background-color: white;
+                border-color: $active;
+                border: 1.5px solid $active;
+            }
+            .texts {
+                color: $active;
+            }
+        }
+    }
+}

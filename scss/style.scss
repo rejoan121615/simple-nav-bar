@@ -87,7 +87,7 @@ section {
             height: 24px;
             background-color: white;
             position: absolute;
-            right: -12px;
+            right: -13px;
             top: 9.5px;
             border: 1.5px solid $border-c;
             border-radius: 0px;
@@ -130,6 +130,7 @@ section {
             border-top-left-radius: $radius;
             border-bottom-left-radius: $radius;
             padding-left: 10px;
+
             @include resp($sm) {
                 padding-left: 15px;
             }
@@ -332,10 +333,45 @@ section {
                 z-index: 5;
                 border-right: 1px solid $active;
                 border-top: 1px solid $active;
+                width: 25px;
+                height: 25px;
+                @include resp($sm) {
+                    top: 12px;
+                    right: -15px;
+                    width: 30px;
+                    height: 30px;
+                    transform: rotate(57deg) skewX(30deg);
+                }
+                @include resp($md) {
+                    top: 13px;
+                    right: -16px;
+                    width: 32px;
+                    height: 32px;
+                }
+                @include resp($lg) {
+                    top: 17px;
+                    right: -21px;
+                    width: 42px;
+                    height: 42px;
+                }
+                @include resp($xl) {
+                    top: 19px;
+                    right: -23px;
+                    width: 46px;
+                    height: 46px;
+                }
+                @include resp($xxxl) {
+                    top: 21px;
+                    right: -26px;
+                    width: 51px;
+                    height: 51px;
+                }
             }
         }
         .bread-item.active {
-            border-right: 1px solid $active;
+            &:last-child {
+                border-right: 1px solid $active;
+            }
         }
     }
 }
